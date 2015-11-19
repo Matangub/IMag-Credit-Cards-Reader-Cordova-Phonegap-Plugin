@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="com.matd.cardreader"
+    version="0.2.11">
+    <name>CardReader</name>
+    <description>The coolest Plugin ever implemented</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,coolest</keywords>
+    <repo></repo>
+    <issue></issue>
+    <js-module src="www/CardReader.js" name="CardReader">
+        <clobbers target="CardReader" />
+        <clobbers target="SettingsPlugin" />
+    </js-module>
+    <!-- android -->
+	<uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
+	<uses-permission android:name="android.permission.MODIFY_AUDIO_SETTINGS"></uses-permission>
+	<uses-permission android:name="android.permission.RECORD_AUDIO"></uses-permission>
+	<uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
+	<uses-permission android:name="android.permission.INTERNET"></uses-permission>
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="CardReader" >
+                <param name="android-package" value="CardReader"/>
+            </feature>
+			<feature name="SettingsPlugin" >
+                <param name="android-package" value="SettingsPlugin"/>
+            </feature>
+			<feature name="testPlugin" >
+                <param name="android-package" value="testPlugin"/>
+            </feature>
+        </config-file>
+        <source-file src="src/android/libs/iMagPayV4.8.jar" target-dir="libs" framework="true" />
+
+        <source-file src="src/android/CardReader.java" target-dir="src/" />
+        <source-file src="src/android/SettingsPlugin.java" target-dir="src/" />
+        <source-file src="src/android/testPlugin.java" target-dir="src/" />
+    </platform>
+
+    <platform name="ios">
+        <feature name="CardReader">
+            <param name="ios-package" value="DBLCard" />
+        </feature>
+
+        <framework src="CoreBluetooth.framework" />
+        <framework src="AudioToolbox.framework" />
+        <framework src="MediaPlayer.framework" />
+        <framework src="QuartzCore.framework" />
+        <framework src="UIKit.framework" />
+        <framework src="Foundation.framework" />
+        <framework src="CoreGraphics.framework" />
+        <framework src="MobileCoreServices.framework" />
+        <framework src="AssetsLibrary.framework" />
+        <framework src="src/ios/libs/iMagPay.framework" custom="true" />
+        <framework src="libstdc++.dylib" />
+        <header-file src="src/ios/DBLCard.m" target-dir="src/" />
+        <source-file src="src/ios/DBLCard.h" target-dir="src/" />
+    </platform>
+</plugin>

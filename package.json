@@ -1,0 +1,18 @@
+{
+    "version": "0.1",
+    "name": "com.matd.coolplugin",
+    "cordova_name": "Cool Plugin",
+    "description": "Cool Plugin",
+    "license": "Apache 2.0",
+    "repo": "",
+    "issue": "",
+    "keywords": [
+        "cordova",
+        "device"
+    ],
+    "platforms": [
+        "android",
+    ],
+    "engines": [],
+    "englishdoc": ""
+}
